@@ -5,17 +5,6 @@
 
 
 }
-.container{
-    width:800px;
-    height:400px;
-    margin:0 auto:
-border:1px solid;
-}
-.image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
 .out{
     border: solid;
     height: 150px;
