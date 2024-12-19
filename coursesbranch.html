@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch Selection</title>
+    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="years.html">
+</head>
+<body>
+    <div class="container">
+        <h1 id="course-name">Select a Branch</h1>
+        <div id="branch-buttons"></div>
+        <button onclick="window.location.href='index.html'">Back to Courses</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const course = urlParams.get('course');
+        
+        const branches = {
+            btech: ['CSE', 'ECE', 'EEE', 'AIML'],
+            mba: ['MARKETING','HR','FINANCE'],
+            diploma: ['CSE','ECE','EEE'],
+            pharmacy: ['BPHARMACY']
+        };
+
+        // Set course name dynamically
+        document.getElementById('course-name').textContent = `${course.toUpperCase()} Branches`;
+
+        // Create branch buttons dynamically
+        const branchButtons = branches[course].map(branch => 
+            `<button onclick="location.href='years.html?course=${course}&branch=${branch.toLowerCase()}'">${branch}</button>`
+        ).join('');
+
+        document.getElementById('branch-buttons').innerHTML = branchButtons;
+    </script>
+</body>
+</html>
