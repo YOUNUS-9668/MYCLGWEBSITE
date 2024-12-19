@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="years.html">
+</head>
+<body>
+    <div class="container">
+        <h1>Download Notes</h1>
+        <p id="notes-link">Loading...</p>
+        
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const course = urlParams.get('course');
+        const branch = urlParams.get('branch');
+        const year = urlParams.get('year');
+        
+        const notesLinks = {
+            cse: {
+                1: {
+                    1: "https://drive.google.com/drive/folders/1r8ACndayY4MSU2iW4YOah08MTbXIvuL9?usp=drive_link",
+                    2: "https://drive.google.com/drive/folders/12R1n_BdmQibhE6g1uWp50EV5p-fElb1q?usp=drive_link",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+                4: {
+                    1: "https://drive.google.com/7",
+                    2: "https://drive.google.com/8"
+                }
+            },
+            ece: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+                4: {
+                    1: "https://drive.google.com/7",
+                    2: "https://drive.google.com/8"
+                }
+            },
+            eee: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+                4: {
+                    1: "https://drive.google.com/7",
+                    2: "https://drive.google.com/8"
+                },
+            },
+            aiml: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+                4: {
+                    1: "https://drive.google.com/7",
+                    2: "https://drive.google.com/8"
+                },
+            },
+                marketing: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+            },
+            hr: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+            },
+            finance: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+            },
+            cse: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+            },
+            ece: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+            },
+            eee: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+            // Add links for other branches similarly
+        },
+        bpharmacy: {
+                1: {
+                    1: "https://drive.google.com/1",
+                    2: "https://drive.google.com/2",
+                },
+                2: {
+                    1: "https://drive.google.com/3",
+                    2: "https://drive.google.com/4",
+                },
+                3: {
+                    1: "https://drive.google.com/5",
+                    2: "https://drive.google.com/6"
+                },
+                4: {
+                    1: "https://drive.google.com/7",
+                    2: "https://drive.google.com/8"
+                }
+            },
+    };
+
+        // Fetch the link for the notes
+        const link = notesLinks[branch][year];
+        document.getElementById('notes-link').innerHTML = `<a href="https://drive.google.com/drive/folders/1zZz6RERLp5h-nlzUa1PCs_fy8GAtS3ix?usp=sharing" target="_blank">Download Notes</a>`;
+    </script>
+</body>
+</html>
