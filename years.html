@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year Selection</title>
+    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="notes.html">
+</head>
+<body>
+    <div class="container">
+        <h1 id="branch-name">Select a Year</h1>
+        <div id="year-buttons"></div>
+        <button onclick="window.location.href='coursesbranch.html'">Back to Branches</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const course = urlParams.get('course');
+        const branch = urlParams.get('branch');
+
+        const years = {
+            cse: [1, 2, 3, 4],
+            ece: [1, 2, 3, 4],
+            eee: [1, 2, 3, 4],
+            aiml: [1, 2, 3, 4],
+            marketing: [1,2],
+            hr: [1,2],
+            finance: [1,2],
+            diploma: [1, 2],
+
+            bpharmacy: [1, 2],
+        };
+
+        // Set branch name dynamically
+        document.getElementById('branch-name').textContent = `${branch.toUpperCase()} - Select Year`;
+
+        // Create year buttons dynamically
+        const yearButtons = years[branch].map(year => 
+            `<button onclick="location.href='notes.html?course=${course}&branch=${branch}&year=${year}'">Year ${year}</button>`
+        ).join('');
+
+        document.getElementById('year-buttons').innerHTML = yearButtons;
+    </script>
+</body>
+</html>

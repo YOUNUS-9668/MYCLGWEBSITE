@@ -1,0 +1,42 @@
+
+
+form{
+    margin-left: 200px;
+    margin-right: 200px;
+    height: 320px;
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,2);
+    background-color: powderblue;
+    padding: 500;
+    z-index: 1;
+
+    
+}
+.left-coloumn{
+    width: 50%;
+}
+.right-coloumn{
+    width: 50%;
+    border-left: 5px;
+}
+
+#b1,#b2,#b3,#b4,#b5{
+    text-align: center;
+    padding-left: 420px;
+    color: firebrick;
+    font-weight: bold;
+    font-size: 30px;
+}
+h1{
+    color: red;
+    background-color: lightpink;
+}
+.button{
+    margin-left: 600px;
+    margin-top: 50px;
+    border-radius: 20px;
+    font-size: 50px;
+    color: white;
+}
